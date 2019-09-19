@@ -16,7 +16,7 @@ public class KafkaProducer {
 	@Value("${topic.id}")
 	private String topicId;
 
-	public void send(String message, String fileName, Integer value) {
-		kafkaTemplate.send(topicId, fileName , new Provider(message, value));
+	public void send(String message, Integer value) {
+		kafkaTemplate.send(topicId, new Provider(message, value));
 	}
 }

@@ -21,11 +21,9 @@ public class ProviderResource {
 
 	@GetMapping(value = "kafka-example")
 	public String producer(@RequestParam("value") int value) {
-		/*int fileNo = value % 5;
-		List<String> processWordDocMsgs = wordReader.processWordDoc(fileNo);
-		for (String msg : processWordDocMsgs) {
-			kafkaProducer.send(msg, ""+fileNo, value);
-		}*/
+		int fileNo = value % 5;
+		String message = wordReader.processWordDoc(fileNo);
+		kafkaProducer.send(message, value);
 		return "Message sent to the Kafka Topic java_in_use_topic Successfully";
 	}
 

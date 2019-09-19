@@ -42,10 +42,10 @@ public class MonitorDirectory {
 						String fileName = event.context().toString();
 						System.out.println("File Created:" + fileName);
 						String fullPath = directoryPath + fileName;
-						List<String> processWordDocMsgs = wordReader.processWordDoc(fullPath);
+						/*List<String> processWordDocMsgs = wordReader.processWordDoc(fullPath);
 						for (String msg : processWordDocMsgs) {
 							kafkaProducer.send(msg, "" + 11111, 1);
-						}
+						}*/
 						System.out.println("Message sent to the Kafka Topic java_in_use_topic Successfully");
 					}
 				}
